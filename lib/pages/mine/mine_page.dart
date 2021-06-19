@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import './mine_detail.dart';
 import 'mineservice/mine_service.dart';
@@ -8,36 +9,15 @@ import './qrcode_page.dart';
 import './about_mall.dart';
 import './mine_address.dart';
 import './vipcard/login_page.dart';
-import './vipcard/register_page.dart';
+
 import 'mineorder/unpayment.dart';
 import 'mineorder/undelivery.dart';
 import 'mineorder/ungoods.dart';
 import 'mineorder/unevaluate.dart';
 import 'package:provider/provider.dart';
 import '../../provide/color_theme_provider.dart';
-import './minetest/scrolllist.dart';
-import './minetest/minebattery.dart';
-import './minetest/connectivity.dart';
+
 class MinePage extends StatelessWidget {
-  final routes = {
-    '/mine_detail': (BuildContext context) => new MineDetailPage(),
-    '/mine_service': (BuildContext context) => new MineServicePage(),
-    '/mine_order': (_) => new MineOrderPage(),
-    '/mine_address': (_) => new MineAddressPage(),
-    '/mine_ticket': (_) => new MineTicketPage(),
-    '/income_detail': (_) => new IncomeDetailPage(),
-    '/qrcode_page': (_) => new QrcodePage(),
-    '/about_mall': (_) => new AboutMallPage(),
-    '/login_page': (_) => new Loginpage(),
-    '/register_page': (_) => new RegisterPage(),
-    '/evaluate_page': (BuildContext context) => new UnEvaluatePage(),
-    '/goods_page': (BuildContext context) => new UnGoodsPage(),
-    '/payment_page': (BuildContext context) => new UnPaymentPage(),
-    '/delivery_page': (BuildContext context) => new UnDeliveryPage(),
-    '/scrolllist_page': (BuildContext context) => new ScrollList(),
-    '/mine_battery': (BuildContext context) => new BatteryPage(),
-    '/mine_connecttivity': (BuildContext context) => new ConnetivityPage(),
-  };
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -45,18 +25,10 @@ class MinePage extends StatelessWidget {
       child: Consumer<ColorThemeProvider>(
           builder: (context, colorThemeProvider, child) {
         print(colorThemeProvider.color);
-        return MaterialApp(
-          title: 'Flutter Demo',
-          debugShowCheckedModeBanner: false, // 去除debugger
-          theme: ThemeData(
-            primarySwatch: colorThemeProvider.color,
-          ),
-          home: Scaffold(
-              body: ListView(
-            children: <Widget>[ButtonPage(), TabNavigator(), TabList()],
-          )),
-          routes: routes,
-        );
+        return Scaffold(
+            body: ListView(
+          children: <Widget>[ButtonPage(), TabNavigator(), TabList()],
+        ));
       }),
     );
   }
@@ -116,7 +88,7 @@ class TabNavigator extends StatelessWidget {
   ];
 
   Widget _gridViewItemUi(BuildContext context, item) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         print(item);
         Navigator.push(
@@ -144,7 +116,8 @@ class TabNavigator extends StatelessWidget {
         );
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(
             IconData(item['icon'], fontFamily: 'iconfont'),
@@ -182,9 +155,6 @@ class TabList extends StatelessWidget {
     {'name': '扫码进行投诉', 'id': 6, 'icon': 0xe7d4},
     {'name': '分享收入明细', 'id': 7, 'icon': 0xe610},
     {'name': '售后服务', 'id': 8, 'icon': 0xe67f},
-    {'name': '滑动列表', 'id': 9, 'icon': 0xe67f},
-    {'name': '我的电量', 'id': 10, 'icon': 0xe67f},
-    {'name': '检测网诺', 'id': 11, 'icon': 0xe67f},
   ];
 
   Widget _listViewItemUi(BuildContext context, item) {
@@ -204,23 +174,13 @@ class TabList extends StatelessWidget {
           Navigator.push(
             context,
             new MaterialPageRoute(
+              // ignore: missing_return
               builder: (BuildContext context) {
                 if (item['name'] == '售后服务') {
                   return MineServicePage(name: item['name'], id: item['id']);
-                } else if (item['name'] == '滑动列表') {
-                  return ScrollList();
-                }
-                else if (item['name'] == '我的电量') {
-                  return BatteryPage();
-                }  
-                else if (item['name'] == '检测网诺') {
-                  return ConnetivityPage();
-                }  
-                
-                else if (item['name'] == '我的订单') {
+                } else if (item['name'] == '我的订单') {
                   return MineOrderPage(title: item['name'], id: item['id']);
-                } 
-                else if (item['name'] == '扫码进行投诉') {
+                } else if (item['name'] == '扫码进行投诉') {
                   return QrcodePage(name: item['name'], id: item['id']);
                 } else if (item['name'] == '分享收入明细') {
                   return IncomeDetailPage(name: item['name'], id: item['id']);

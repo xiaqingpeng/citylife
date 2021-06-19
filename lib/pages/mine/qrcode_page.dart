@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 
+// ignore: must_be_immutable
 class QrcodePage extends StatelessWidget {
   int id;
   String name;

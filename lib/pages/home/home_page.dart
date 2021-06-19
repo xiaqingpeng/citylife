@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
-    print('请求的数据:${_items}');
+    print('请求的数据:$_items');
     return Scaffold(
         appBar: AppBar(
           title: Text("首页"),

@@ -32,7 +32,7 @@ class _DynamicPageState extends State<DynamicPage> {
       body: Container(
         child: Center(
           child: Text(
-            '${text}',
+            '$text',
             style: TextStyle(color: Theme.of(context).primaryColor),
           ),
         ),

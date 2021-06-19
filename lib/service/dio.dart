@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:dio/dio.dart';
 
 
@@ -23,7 +21,6 @@ class HttpController {
   }
 
   static get(api, params) async {
-    Options options = Options(headers: {HttpHeaders.acceptHeader:"accept: application/json"});
     print("开始获取数据");
     Response response;
     Dio dio = new Dio();
@@ -31,7 +28,6 @@ class HttpController {
     try {
       if (params != null && params.isNotEmpty) {
         
-        var url = baseUrl + api;
        
         response = await dio.get(baseUrl + api + params);
         print(response);

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 
 // import 'package:fluttertoast/fluttertoast.dart';
@@ -13,18 +12,12 @@ class HeaderPage extends StatefulWidget {
 
 class _ImagePickerState extends State<HeaderPage> {
   var _imgPath;
+  final picker = ImagePicker();
   /*拍照*/
-  _takePhoto() async {
-    var image =  await picker.getImage(source: ImageSource.camera);
-
-    setState(() {
-      _imgPath = image;
-    });
-  }
-
-  /*相册*/
   _openGallery() async {
-    var image = await await picker.getImage(source: ImageSource.camera);
+    // ignore: deprecated_member_use
+    var image = await picker.getImage(source: ImageSource.camera);
+
     setState(() {
       _imgPath = image;
     });
@@ -94,11 +87,13 @@ class _ImagePickerState extends State<HeaderPage> {
                             title: Text('我的登录'),
                             content: Text('你确定登录吗？'),
                             actions: [
+                              // ignore: deprecated_member_use
                               FlatButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
                                   child: Text('取消')),
+                              // ignore: deprecated_member_use
                               FlatButton(
                                   onPressed: () {
                                     // Fluttertoast.showToast(

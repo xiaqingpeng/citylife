@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:citylife/utils/platform.dart';
 
+// ignore: must_be_immutable
 class AboutMallPage extends StatefulWidget {
   int id;
 
@@ -14,6 +16,7 @@ class AboutMallPage extends StatefulWidget {
 }
 
 class _PageState extends State<AboutMallPage> {
+  // ignore: unused_element
   _PageState({Key key, this.url, this.title});
 
   String url;
@@ -34,14 +37,22 @@ class _PageState extends State<AboutMallPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      appBar: _setTitle(context),
-      url: widget.url,
-      mediaPlaybackRequiresUserGesture: false,
-      withZoom: false,
-      withLocalStorage: true,
-      hidden: true,
-    );
+    if (PlatformUtils.isWeb) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('web平台'),
+        ),
+      );
+    } else {
+      return WebviewScaffold(
+        appBar: _setTitle(context),
+        url: widget.url,
+        mediaPlaybackRequiresUserGesture: false,
+        withZoom: false,
+        withLocalStorage: true,
+        hidden: true,
+      );
+    }
   }
 
   _progressBar(double progress, BuildContext context) {

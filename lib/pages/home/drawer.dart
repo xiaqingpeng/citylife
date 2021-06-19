@@ -1,8 +1,5 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:citylife/provide/theme.dart';
-import './widget/wallet.dart';
-import './widget/message.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './widget/theme.dart';
@@ -16,7 +13,6 @@ class MyDrawer extends StatefulWidget {
 
 class _ImagePickerState extends State<MyDrawer> {
   var _imgPath;
-  File _image;
   final picker = ImagePicker();
   /*拍照*/
 
@@ -84,48 +80,9 @@ class _ImagePickerState extends State<MyDrawer> {
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    ListTile(
-                      leading: Icon(
-                        Icons.wallet_giftcard,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text("我的钱包"),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return WalletPage();
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        IconData(0xe6ae, fontFamily: 'iconfont'),
-                        color: ThemeColor().theme,
-                      ),
-                      title: Text("我的相册"),
-                      onTap: () {},
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        IconData(0xe6a8, fontFamily: 'iconfont'),
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text("公告消息"),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return MessagePage();
-                            },
-                          ),
-                        );
-                      },
-                    ),
+                   
+                   
+                   
                     ListTile(
                       leading: Icon(
                         Icons.color_lens,
@@ -143,14 +100,7 @@ class _ImagePickerState extends State<MyDrawer> {
                         );
                       },
                     ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.settings,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text("设置"),
-                      onTap: () {},
-                    ),
+                  
                   ],
                 ),
               )

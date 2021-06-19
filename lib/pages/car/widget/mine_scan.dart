@@ -1,7 +1,7 @@
+import 'package:citylife/utils/platform.dart';
 import 'package:flutter/material.dart';
 
 import 'package:barcode_scan2/barcode_scan2.dart';
-import '../../utils/platform.dart';
 class MineScanPage extends StatelessWidget {
   // ignore: non_constant_identifier_names
   Future BarCode() async {
