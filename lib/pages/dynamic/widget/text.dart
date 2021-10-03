@@ -6,7 +6,7 @@ class TextPage extends StatelessWidget {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Text 控件'),
+          title: Text('Text 文本控件'),
           elevation: 10.0, // 阴影 默认4.0
           backgroundColor: Colors.blue,
         ),

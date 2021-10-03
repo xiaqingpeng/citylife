@@ -31,7 +31,7 @@ class ListViewBuilderPage extends StatelessWidget {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('ListView.builder 控件'),
+          title: Text('ListView.builder 列表控件'),
           elevation: 10.0, // 阴影 默认4.0
           backgroundColor: Colors.blue,
         ),

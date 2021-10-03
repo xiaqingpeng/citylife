@@ -3,19 +3,25 @@ import 'package:citylife/provide/theme.dart';
 import 'widget/text.dart';
 
 import 'widget/listviewbuilder.dart';
+import 'widget/tab.dart';
 
 class DynamicUtils {
   // ignore: non_constant_identifier_names
   static List  DynamicLists = [
     {
-      "text": "Text 控件",
+      "text": "Text 文本控件",
       "icon": 0xe6ae,
       "content": TextPage(),
     },
     {
-      "text": "ListView.builder 控件",
+      "text": "ListView.builder 列表控件",
       "icon": 0xe6ae,
       "content": ListViewBuilderPage(),
+    },
+    {
+      "text": "tab 选项卡控件",
+      "icon": 0xe6ae,
+      "content": TabPage(),
     },
   ];
 }
