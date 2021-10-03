@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './self_title.dart';
+import './drawer.dart';
 
 class DynamicPage extends StatefulWidget {
   DynamicPage({Key key}) : super(key: key);
@@ -37,6 +38,7 @@ class _DynamicPageState extends State<DynamicPage> {
           ),
         ),
       ),
+      endDrawer: MyDrawer(),
     );
   }
 }
