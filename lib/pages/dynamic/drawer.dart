@@ -4,6 +4,7 @@ import 'widget/text.dart';
 
 import 'widget/listviewbuilder.dart';
 import 'widget/tab.dart';
+import 'widget/darwer.dart';
 
 class DynamicUtils {
   // ignore: non_constant_identifier_names
@@ -22,6 +23,11 @@ class DynamicUtils {
       "text": "tab 选项卡控件",
       "icon": 0xe6ae,
       "content": TabPage(),
+    },
+    {
+      "text": "darwer 抽底控件",
+      "icon": 0xe6ae,
+      "content": DrawerPage(),
     },
   ];
 }
