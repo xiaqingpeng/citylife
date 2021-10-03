@@ -5,6 +5,7 @@ import 'widget/text.dart';
 import 'widget/listviewbuilder.dart';
 import 'widget/tab.dart';
 import 'widget/darwer.dart';
+import 'widget/bottomNavigationBar.dart';
 
 class DynamicUtils {
   // ignore: non_constant_identifier_names
@@ -28,6 +29,11 @@ class DynamicUtils {
       "text": "darwer 抽底控件",
       "icon": 0xe6ae,
       "content": DrawerPage(),
+    },
+    {
+      "text": "bottomNavigationBar 底部导航控件",
+      "icon": 0xe6ae,
+      "content": BottomNavigationBarPage(),
     },
   ];
 }
